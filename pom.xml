@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cotemig</groupId>
-	<artifactId>MecanOn</artifactId>
+	<artifactId>ProjetoMecanOn</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MecanOn</name>
+	<name>ProjetoMecanOn</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

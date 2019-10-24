@@ -13,20 +13,20 @@ public class Perfil {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	private String nome;
 	private char tipo;
-	private int permissoes;
+	private Integer permissoes;
 	
 	@OneToMany(mappedBy="perfil")
 	private Set<Usuario> usuarios;
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {
@@ -41,10 +41,10 @@ public class Perfil {
 	public void setTipo(char tipo) {
 		this.tipo = tipo;
 	}
-	public int getPermissoes() {
+	public Integer getPermissoes() {
 		return permissoes;
 	}
-	public void setPermissoes(int permissoes) {
+	public void setPermissoes(Integer permissoes) {
 		this.permissoes = permissoes;
 	}	
 }

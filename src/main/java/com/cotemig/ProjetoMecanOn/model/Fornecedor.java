@@ -12,7 +12,7 @@ public class Fornecedor {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;	
+	private Integer id;	
 	private String nome;
 	private String cnpj;
 	private String email;
@@ -21,10 +21,10 @@ public class Fornecedor {
 	@OneToMany(mappedBy="fornecedor")
 	private Set<Produto> produtos;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {

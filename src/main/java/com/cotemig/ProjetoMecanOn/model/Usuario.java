@@ -12,7 +12,7 @@ public class Usuario {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	private String login;
 	private String senha;
@@ -20,18 +20,18 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name="perfil_id", nullable=false)
 	private Perfil perfil;
-	private int perfil_id;
+	private Integer perfil_id;
 	
-	public int getPerfil_id() {
+	public Integer getPerfil_id() {
 		return perfil_id;
 	}
-	public void setPerfil_id(int perfil_id) {
+	public void setPerfil_id(Integer perfil_id) {
 		this.perfil_id = perfil_id;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getLogin() {

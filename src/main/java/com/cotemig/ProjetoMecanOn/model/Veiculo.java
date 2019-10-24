@@ -14,7 +14,7 @@ public class Veiculo {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	private String nome;
 	private char tipo;
 	private String placa;
@@ -23,18 +23,18 @@ public class Veiculo {
 	@ManyToOne
 	@JoinColumn(name="cliente_id", nullable=false)
 	private Cliente cliente;
-	private int cliente_id;
+	private Integer cliente_id;
 	
-	public int getCliente_id() {
+	public Integer getCliente_id() {
 		return cliente_id;
 	}
-	public void setCliente_id(int cliente_id) {
+	public void setCliente_id(Integer cliente_id) {
 		this.cliente_id = cliente_id;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {

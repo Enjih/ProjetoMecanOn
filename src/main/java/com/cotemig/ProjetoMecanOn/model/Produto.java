@@ -1,10 +1,31 @@
 package com.cotemig.ProjetoMecanOn.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Produto {
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String nome;
 	private double preco;
+	
+	@ManyToOne
+	@JoinColumn(name="fornecedor_id", nullable=false)
 	private Fornecedor fornecedor;
+	private int fornecedor_id;
+	
+	public int getFornecedor_id() {
+		return fornecedor_id;
+	}
+	public void setFornecedor_id(int fornecedor_id) {
+		this.fornecedor_id = fornecedor_id;
+	}
 	public int getId() {
 		return id;
 	}
@@ -23,10 +44,4 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}	
 }

@@ -2,19 +2,34 @@ package com.cotemig.ProjetoMecanOn.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Veiculo {
+	
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String nome;
 	private char tipo;
 	private String placa;
 	private Date ano;
-	private Cliente cliente;
 	
-	public Cliente getCliente() {
-		return cliente;
+	@ManyToOne
+	@JoinColumn(name="cliente_id", nullable=false)
+	private Cliente cliente;
+	private int cliente_id;
+	
+	public int getCliente_id() {
+		return cliente_id;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setCliente_id(int cliente_id) {
+		this.cliente_id = cliente_id;
 	}
 	public int getId() {
 		return id;

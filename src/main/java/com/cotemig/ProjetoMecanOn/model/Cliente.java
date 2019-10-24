@@ -15,6 +15,7 @@ public class Cliente {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
+	
 	private String nome;
 	private long cpf;
 	private String email;

@@ -1,11 +1,9 @@
 package com.cotemig.ProjetoMecanOn.model;
 
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Fornecedor {
@@ -13,13 +11,11 @@ public class Fornecedor {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;	
+	
 	private String nome;
 	private String cnpj;
 	private String email;
 	private String telefone;
-	
-	@OneToMany(mappedBy="fornecedor")
-	private Set<Produto> produtos;
 	
 	public Integer getId() {
 		return id;

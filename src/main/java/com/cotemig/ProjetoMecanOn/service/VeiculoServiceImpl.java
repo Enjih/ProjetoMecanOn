@@ -39,7 +39,7 @@ public class VeiculoServiceImpl implements VeiculoService{
 		getVeiculo.get().setTipo(veiculo.getTipo());
 		getVeiculo.get().setPlaca(veiculo.getPlaca());
 		getVeiculo.get().setAno(veiculo.getAno());
-		getVeiculo.get().setCliente_id(veiculo.getCliente_id());
+		getVeiculo.get().setCliente(veiculo.getCliente());
 		
 		veiculoRepository.save(veiculo);
 	}

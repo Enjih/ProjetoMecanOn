@@ -19,9 +19,6 @@ public class Cliente {
 	private String email;
 	private String telefone;
 	
-	@OneToMany(mappedBy="cliente")
-	private Set<Veiculo> veiculos;
-	
 	public Integer getId() {
 		return id;
 	}

@@ -39,7 +39,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 		Optional<Usuario> getUsuario = getUsuarioById(id);
 		getUsuario.get().setLogin(usuario.getLogin());
 		getUsuario.get().setSenha(usuario.getSenha());
-		getUsuario.get().setPerfil_id(usuario.getPerfil_id());
+		getUsuario.get().setPerfil(usuario.getPerfil());
 		
 		usuarioRepository.save(usuario);
 	}

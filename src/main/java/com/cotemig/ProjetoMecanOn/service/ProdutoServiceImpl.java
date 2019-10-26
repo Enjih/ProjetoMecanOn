@@ -39,10 +39,9 @@ public class ProdutoServiceImpl implements ProdutoService {
 		Optional<Produto> getProduto = getProdutoById(id);
 		getProduto.get().setNome(produto.getNome());
 		getProduto.get().setPreco(produto.getPreco());
-		getProduto.get().setFornecedor_id(produto.getFornecedor_id());
+		getProduto.get().setFornecedor(produto.getFornecedor());
 		
-		produtoRepository.save(produto);
-		
+		produtoRepository.save(produto);		
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.cotemig.ProjetoMecanOn.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,6 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class OrdemServico {
-	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
@@ -21,18 +21,35 @@ public class OrdemServico {
 	@ManyToOne
 	@JoinColumn(name="cliente_id", nullable=false)
 	private Cliente cliente;
-	private Integer cliente_id;
-	
 	
 	private Date dataSolicitacao;
 	private Date dataInicio;
 	private Date dataEntrega;
 	private char status;
 	private double valor;
+	
+	@ManyToOne
+	@JoinColumn(name="veiculo_id", nullable=false)
 	private Veiculo veiculo;
+	
+	@ManyToOne
+	@JoinColumn(name="usuario_id", nullable=false)
 	private Usuario usuario;
 
+	private List<Produto> produtos;
 	
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -44,12 +61,6 @@ public class OrdemServico {
 	}
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-	public Integer getCliente_id() {
-		return cliente_id;
-	}
-	public void setCliente_id(Integer cliente_id) {
-		this.cliente_id = cliente_id;
 	}
 	public Date getDataSolicitacao() {
 		return dataSolicitacao;

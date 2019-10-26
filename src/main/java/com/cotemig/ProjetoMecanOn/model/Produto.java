@@ -12,19 +12,19 @@ public class Produto {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+	
 	private String nome;
 	private double preco;
 	
 	@ManyToOne
 	@JoinColumn(name="fornecedor_id", nullable=false)
 	private Fornecedor fornecedor;
-	private Integer fornecedor_id;
 	
-	public Integer getFornecedor_id() {
-		return fornecedor_id;
+	public Fornecedor getFornecedor() {
+		return fornecedor;
 	}
-	public void setFornecedor_id(Integer fornecedor_id) {
-		this.fornecedor_id = fornecedor_id;
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 	public Integer getId() {
 		return id;

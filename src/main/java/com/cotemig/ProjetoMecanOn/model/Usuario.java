@@ -15,19 +15,18 @@ public class Usuario {
 	private Integer id;
 	
 	private String login;
-	private String senha;
+	private String senha;	
 	
 	@ManyToOne
 	@JoinColumn(name="perfil_id", nullable=false)
 	private Perfil perfil;
-	private Integer perfil_id;
 	
-	public Integer getPerfil_id() {
-		return perfil_id;
+	public Perfil getPerfil() {
+		return perfil;
 	}
-	public void setPerfil_id(Integer perfil_id) {
-		this.perfil_id = perfil_id;
-	}
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}	
 	public Integer getId() {
 		return id;
 	}

@@ -1,4 +1,4 @@
-package com.cotemig.ProjetoMecanOn.repository;
+package com.cotemig.ProjetoMecanOn.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

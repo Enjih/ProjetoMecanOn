@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cotemig.ProjetoMecanOn.dao.ProdutoRepostory;
 import com.cotemig.ProjetoMecanOn.model.Produto;
-import com.cotemig.ProjetoMecanOn.repository.ProdutoRepostory;
 
 @Service("produtoService")
 public class ProdutoServiceImpl implements ProdutoService {

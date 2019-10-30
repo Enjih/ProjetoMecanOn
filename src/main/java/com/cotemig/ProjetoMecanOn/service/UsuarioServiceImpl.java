@@ -37,9 +37,12 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public void updateUsuarioById(Integer id, Usuario usuario) {
 		Optional<Usuario> getUsuario = getUsuarioById(id);
-		getUsuario.get().setLogin(usuario.getLogin());
-		getUsuario.get().setSenha(usuario.getSenha());
+		getUsuario.get().setNome(usuario.getNome());
+		getUsuario.get().setEmail(usuario.getEmail());
+		getUsuario.get().setSenha(usuario.getSenha());		
 		getUsuario.get().setPerfil(usuario.getPerfil());
+		getUsuario.get().setTelefone(usuario.getTelefone());
+		
 		
 		usuarioRepository.save(usuario);
 	}

@@ -1,7 +1,7 @@
 package com.cotemig.ProjetoMecanOn.model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,22 +36,12 @@ public class OrdemServico {
 	@JoinColumn(name="usuario_id", nullable=false)
 	private Usuario usuario;
 
-	private List<Produto> produtos;
 	
 	public Cliente getCliente() {
 		return cliente;
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
-	}
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-	public Integer getId() {
-		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;

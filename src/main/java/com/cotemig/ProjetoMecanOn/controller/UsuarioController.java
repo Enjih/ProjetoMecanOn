@@ -23,11 +23,13 @@ public class UsuarioController {
 	@Autowired
 	private PerfilService perfilService;
 	
-	@RequestMapping( value = "/Usuario", method = RequestMethod.GET) 
+	@RequestMapping( value = "/", method = RequestMethod.GET) 
     public ModelAndView Usuario(){
-		ModelAndView mav = new ModelAndView("/Usuario");
+		ModelAndView mav = new ModelAndView("usuario");
 		
         mav.addObject("usuarios", usuarioService.getAllUsuarios());
+        mav.addObject("usuario", new Usuario());
+		mav.addObject("perfis", perfilService.getAllPerfis());
         
         return mav;
     }

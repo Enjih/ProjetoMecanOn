@@ -13,36 +13,62 @@ public class Usuario {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	
-	private String login;
-	private String senha;	
+	private String nome;
+	private String email;
+	private String senha;
+	private String telefone;	
 	
 	@ManyToOne
 	@JoinColumn(name="perfil_id", nullable=false)
 	private Perfil perfil;
-	
-	public Perfil getPerfil() {
-		return perfil;
-	}
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getLogin() {
-		return login;
+
+	public String getNome() {
+		return nome;
 	}
-	public void setLogin(String login) {
-		this.login = login;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getSenha() {
 		return senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
+	
+	
 }

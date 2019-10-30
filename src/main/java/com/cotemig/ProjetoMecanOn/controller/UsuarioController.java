@@ -24,7 +24,7 @@ public class UsuarioController {
 	private PerfilService perfilService;
 	
 	@RequestMapping( value = "/", method = RequestMethod.GET) 
-    public ModelAndView Usuario(){
+    public ModelAndView usuario(){
 		ModelAndView mav = new ModelAndView("usuario");
 		
         mav.addObject("usuarios", usuarioService.getAllUsuarios());

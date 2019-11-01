@@ -1,0 +1,12 @@
+2019-10-30 19:31:10 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USUARIO: ""PERFIL_ID"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USUARIO"("ID","EMAIL","NOME","SENHA","TELEFONE","PERFIL_ID")VALUES(?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6) [22018-199]
+2019-10-30 19:31:10 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USUARIO: ""PERFIL_ID"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USUARIO"("ID","EMAIL","NOME","SENHA","TELEFONE","PERFIL_ID")VALUES(?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6) [22018-199]
+2019-10-30 19:32:48 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'diogosilva@gmail.com' (CLIENTE: ""CPF"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CLIENTE"("ID","CPF","EMAIL","NOME","TELEFONE")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-199]
+2019-10-30 19:32:48 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'diogosilva@gmail.com' (CLIENTE: ""CPF"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."CLIENTE"("ID","CPF","EMAIL","NOME","TELEFONE")VALUES(?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5) [22018-199]

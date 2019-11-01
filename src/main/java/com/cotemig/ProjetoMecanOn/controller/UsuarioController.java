@@ -48,12 +48,13 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/Usuario/Alterar", method = RequestMethod.GET)
 	public ModelAndView AlterarUsuario(Integer id) {
-		return new ModelAndView("/Usuario", "usuario", usuarioService.getUsuarioById(id).get());		
+		ModelAndView mav = new ModelAndView("usuario_alterar", "usuario", usuarioService.getUsuarioById(id).get());
+		mav.addObject("perfis", perfilService.getAllPerfis());
+		return mav;		
 	}
 	
-	
 	@RequestMapping(value = "/Usuario/Alterar", method = RequestMethod.POST)
-	public String submitAlterarUsuario(@Valid @ModelAttribute("usuario_alterar")Usuario usuario,
+	public String submitAlterarUsuario(@Valid @ModelAttribute("usuario")Usuario usuario,
 		      BindingResult result, ModelMap model) {
 				if (result.hasErrors()) {
 		            return "error";
@@ -61,7 +62,7 @@ public class UsuarioController {
 				
 				usuarioService.updateUsuario(usuario);
 		        
-				return "redirect:Usuario";//perguntar o professor se é assim que volta para a pagina de Usuario 
+				return "redirect:";//perguntar o professor se é assim que volta para a pagina de Usuario 
 		    }
 	
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.GET)

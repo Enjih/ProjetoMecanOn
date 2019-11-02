@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -58,28 +57,22 @@ public class UsuarioController {
 		      BindingResult result, ModelMap model) {
 				if (result.hasErrors()) {
 		            return "error";
-		        }
-				
-				usuarioService.updateUsuario(usuario);
-		        
-				return "redirect:";//perguntar o professor se é assim que volta para a pagina de Usuario 
+		        }				
+				usuarioService.updateUsuario(usuario);		        
+				return "redirect:";
 		    }
 	
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.GET)
-	public ModelAndView ExcluirUsuario(Integer id) {		
-		return new ModelAndView("/Usuario/Excluir", "usuario", usuarioService.getUsuarioById(id).get());		
+	public ModelAndView ExcluirUsuario(Integer id) {
+		return new ModelAndView("usuario_excluir", "usuario", usuarioService.getUsuarioById(id).get());
 	}
 	
-	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.POST)
-	public String submitExcluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario,
-		      BindingResult result, ModelMap model) {
-		        
+	@RequestMapping(value = "/Usuario/Excluir)", method = RequestMethod.POST)
+	public String submitExcluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
 				if (result.hasErrors()) {
 		            return "error";
-		        }
-				
-				usuarioService.deleteUsuarioById(usuario.getId());
-		        
-				return "redirect:Usuario";//perguntar o professor se é assim que volta para a pagina de Usuario 
+		        }				
+				usuarioService.deleteUsuarioById(usuario.getId());		        
+				return "redirect:";
 		    }
 }

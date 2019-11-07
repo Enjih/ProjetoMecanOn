@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cotemig.ProjetoMecanOn.dao.VeiculoRepostory;
 import com.cotemig.ProjetoMecanOn.model.Veiculo;
+import com.cotemig.ProjetoMecanOn.repo.VeiculoRepostory;
 
 @Service("veiculoService")
 public class VeiculoServiceImpl implements VeiculoService{

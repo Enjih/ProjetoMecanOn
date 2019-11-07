@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cotemig.ProjetoMecanOn.dao.PerfilRepostory;
 import com.cotemig.ProjetoMecanOn.model.Perfil;
+import com.cotemig.ProjetoMecanOn.repo.PerfilRepostory;
 
 @Service("perfilService")
 public class PerfilServiceImpl implements PerfilService{

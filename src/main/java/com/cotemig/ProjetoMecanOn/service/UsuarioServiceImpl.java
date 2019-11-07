@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cotemig.ProjetoMecanOn.dao.UsuarioRepository;
 import com.cotemig.ProjetoMecanOn.model.Usuario;
+import com.cotemig.ProjetoMecanOn.repo.UsuarioRepository;
 
 @Service("usuarioService")
 public class UsuarioServiceImpl implements UsuarioService{

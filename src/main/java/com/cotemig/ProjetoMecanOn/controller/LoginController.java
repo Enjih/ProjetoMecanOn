@@ -28,12 +28,18 @@ public class LoginController {
 	public String submitLogin(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
             return "error";
-        }		
-		if(usuarioService.getAllUsuarios().contains(usuario)) {
-			return "redirect:Home";			
-		}else {
-			return "Usuário não existe!";
+        }
+		
+		for(Usuario u : usuarioService.getAllUsuarios()) {				
+			if(u.getEmail().equals(usuario.getEmail())) {
+				if(u.getSenha().equals(usuario.getSenha())) {
+					return "redirect:Home";				
+				}else {
+					return "Usuário/Senha não encontrados";
+				}
+			}
 		}
+		return "Usuário não encontrado";
     }
 
 }

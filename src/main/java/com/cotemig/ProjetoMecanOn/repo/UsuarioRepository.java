@@ -8,3 +8,5 @@ import com.cotemig.ProjetoMecanOn.model.Usuario;
 public interface  UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
 }
+
+

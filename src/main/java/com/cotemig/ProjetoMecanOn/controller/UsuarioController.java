@@ -57,8 +57,8 @@ public class UsuarioController {
 		      BindingResult result, ModelMap model) {
 				if (result.hasErrors()) {
 		            return "error";
-		        }				
-				usuarioService.updateUsuario(usuario);		        
+				}
+				
 				return "redirect:";
 		    }
 	
@@ -67,11 +67,13 @@ public class UsuarioController {
 		return new ModelAndView("usuario_excluir", "usuario", usuarioService.getUsuarioById(id).get());
 	}
 	
-	@RequestMapping(value = "/Usuario/Excluir)", method = RequestMethod.POST)
-	public String submitExcluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
-				if (result.hasErrors()) {
+	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.POST)
+	public String submitExcluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {	
+		System.out.println(usuario.getId());
+		if (result.hasErrors()) {
 		            return "error";
-		        }				
+		        }
+		
 				usuarioService.deleteUsuarioById(usuario.getId());		        
 				return "redirect:";
 		    }

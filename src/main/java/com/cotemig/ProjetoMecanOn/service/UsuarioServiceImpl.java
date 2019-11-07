@@ -10,7 +10,8 @@ import com.cotemig.ProjetoMecanOn.model.Usuario;
 import com.cotemig.ProjetoMecanOn.repo.UsuarioRepository;
 
 @Service("usuarioService")
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{	
+
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
@@ -31,7 +32,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	public void deleteUsuarioById(Integer id) {
-		usuarioRepository.deleteById(id);	
+		usuarioRepository.deleteById(id);			
 	}
 
 	@Override
@@ -42,7 +43,6 @@ public class UsuarioServiceImpl implements UsuarioService{
 		getUsuario.get().setSenha(usuario.getSenha());		
 		getUsuario.get().setPerfil(usuario.getPerfil());
 		getUsuario.get().setTelefone(usuario.getTelefone());
-		
 		
 		usuarioRepository.save(usuario);
 	}
@@ -57,5 +57,4 @@ public class UsuarioServiceImpl implements UsuarioService{
 		usuarioRepository.save(usuario);
 	}
 	
-
 }

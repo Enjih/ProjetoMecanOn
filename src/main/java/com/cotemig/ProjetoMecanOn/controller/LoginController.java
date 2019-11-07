@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,13 +19,13 @@ public class LoginController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@GetMapping( value = "/Login") 
-    public ModelAndView home(){        
+	@RequestMapping( value = "/Login", method = RequestMethod.GET) 
+    public ModelAndView Login(){
         return new ModelAndView("login");
-    }	
+    }
 	
 	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	public String submitIncluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
+	public String submitLogin(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
             return "error";
         }		

@@ -59,7 +59,7 @@ public class UsuarioController {
 		            return "error";
 				}
 				
-				return "redirect:";
+				return "redirect:Usuario";
 		    }
 	
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.GET)
@@ -75,6 +75,6 @@ public class UsuarioController {
 		        }
 		
 				usuarioService.deleteUsuarioById(usuario.getId());		        
-				return "redirect:";
+				return "redirect:Usuario";
 		    }
 }

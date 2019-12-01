@@ -1,7 +1,6 @@
 package com.cotemig.ProjetoMecanOn.model;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

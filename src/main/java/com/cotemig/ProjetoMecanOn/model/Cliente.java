@@ -19,6 +19,9 @@ public class Cliente {
 	private String email;
 	private String telefone;
 	
+	@OneToMany(mappedBy = "veiculo",  targetEntity = Veiculo.class)
+	private Set<Veiculo> veiculos;	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -48,5 +51,11 @@ public class Cliente {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	public Set<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+	public void setVeiculos(Set<Veiculo> veiculos) {
+		this.veiculos = veiculos;
 	}
 }

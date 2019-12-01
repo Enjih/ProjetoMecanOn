@@ -16,6 +16,10 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script>
+        function goBack() {
+         window.history.back();
+        }</script>
 
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -63,6 +67,9 @@ body {
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
+    background-image: url('./home.jpg');
+    background-size: cover;
+    background-size: 100% 100%;
   }
 
   #wrapper.toggled #sidebar-wrapper {
@@ -363,7 +370,8 @@ table.table .avatar {
                         <th>Tipo</th>
                         <th>Placa</th>
                         <th>Ano</th>  
-                        <th>Cliente</th>                                      
+                        <th>Cliente</th>     
+                        <th>Ações</th>                                 
                     </tr>
                 </thead>
                 <tbody>
@@ -378,7 +386,7 @@ table.table .avatar {
                         <td th:text="${veiculo.tipo}"></td>
                         <td th:text="${veiculo.placa}"></td>
                         <td th:text="${veiculo.ano}"></td>
-                        <td th:text="${veiculo.cliente}"></td>		
+                        <td th:text="${veiculo.cliente.nome}"></td>		
                         <td>
                             <a th:href="@{/Veiculo/Alterar(id=${veiculo.id})}"><i class="material-icons" data-toggle="tooltip" title="Alterar">&#xE254;</i></a>
                             <a th:href="@{/Veiculo/Excluir(id=${veiculo.id})}"><i class="material-icons" data-toggle="tooltip" title="Excluir">&#xE872;</i></a>
@@ -407,8 +415,8 @@ table.table .avatar {
                     </div>
                     <div class="form-group">
                         <label>Tipo</label><br>
-                        <select class="form-group" th:field="*{veiculo.tipo}">
-                            <option th:each="t : ${tipos}" th:value="${t.id}" th:text="${t.nome}"></option>
+                        <select class="form-control" th:field="*{veiculo.tipo}">
+                            <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}"></option>
                         </select>	
                     </div>	
                     <div class="form-group">
@@ -421,13 +429,13 @@ table.table .avatar {
                     </div>  
                     <div class="form-group">
                         <label>Cliente</label><br>
-                        <select class="form-group" th:field="*{veiculo.cliente}">
+                        <select class="form-control" th:field="*{veiculo.cliente}">
                             <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
                         </select>	
                     </div>	              
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                     <input type="submit" class="btn btn-success" value="Incluir">
                 </div>
             </form>

@@ -59,7 +59,7 @@ public class UsuarioController {
 			return "error";
 		}
 
-		return "redirect:Usuario";
+		return "redirect:";
 	}
 
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.GET)

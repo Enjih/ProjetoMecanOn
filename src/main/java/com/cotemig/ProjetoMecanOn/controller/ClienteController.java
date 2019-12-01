@@ -50,7 +50,7 @@ public class ClienteController {
 			return "error";
 		}
 
-		return "redirect:Cliente";
+		return "redirect:";
 	}
 	@RequestMapping(value = "/Cliente/Excluir", method = RequestMethod.GET)
 	public ModelAndView ExcluirCliente(Integer id) {

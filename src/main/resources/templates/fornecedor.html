@@ -16,7 +16,10 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
+<script>
+        function goBack() {
+         window.history.back();
+        }</script>
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
@@ -63,6 +66,9 @@ body {
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
+    background-image: url('home.jpg');
+    background-size: cover;
+    background-size: 100% 100%;
   }
 
   #wrapper.toggled #sidebar-wrapper {
@@ -418,7 +424,7 @@ table.table .avatar {
                     </div>                
                 </div>
                 <div class="modal-footer">
-                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                    <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                     <input type="submit" class="btn btn-success" value="Incluir">
                 </div>
             </form>

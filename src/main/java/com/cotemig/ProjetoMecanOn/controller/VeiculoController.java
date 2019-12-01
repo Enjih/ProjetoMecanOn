@@ -15,21 +15,22 @@ import com.cotemig.ProjetoMecanOn.service.VeiculoService;
 public class VeiculoController {
 	@Autowired
 	private ClienteService  clienteService;
-	
+
 	@Autowired
 	private VeiculoService  veiculoService;
-	
+
 	@RequestMapping( value = "/Veiculo", method = RequestMethod.GET) 
 	public ModelAndView Veiculo(){
 		ModelAndView mav = new ModelAndView("veiculo");
-		char [] Tipos = new char[]{'C', 'M'};
+		char [] tipos = new char[]{'C', 'M'};
+
 
 		mav.addObject("clientes", clienteService.getAllClientes());
 		mav.addObject("veiculos", veiculoService.getAllVeiculos());
-		mav.addObject("tipos", Tipos);
-		mav.addObject("veiculo", new Veiculo());
+		mav.addObject("tipos", tipos);
+		mav.addObject("veiculo", new Veiculo()); 
 
 		return mav;
 	}	
-	
+
 }

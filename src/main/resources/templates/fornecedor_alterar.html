@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alterar Cliente</title>
+  <title>Alterar Fornecedor</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -333,33 +333,33 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Cliente/Alterar" method="POST" modelAttribute="cliente">
+                    <form action="/Fornecedor/Alterar" method="POST" modelAttribute="fornecedor">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Alterar Cliente</h2>
+                                            <h2>Alterar Fornecedor</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Id</label>
-                                    <input type="text" name="id" th:value="${cliente.id}" class="form-control" readonly="true">
+                                    <input type="text" name="id" th:value="${fornecedor.id}" class="form-control" readonly="true">
                                     </div>
                                 <div class="form-group">
                                     <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control" th:value="${cliente.nome}"><br>
+                                    <input type="text" name="nome" class="form-control" th:value="${fornecedor.nome}"><br>
                                 </div>
                                 <div class="form-group">
-                                    <label>CPF</label>
-                                    <input type="number" name="cpf" class="form-control" th:value="${cliente.cpf}"><br>
+                                    <label>CNPJ</label>
+                                    <input type="number" name="cnpj" class="form-control" th:value="${fornecedor.cnpj}"><br>
                                 </div>
                                 <div class="form-group">
                                     <label>E-mail</label>
-                                    <input type="text" name="email" class="form-control" th:value="${cliente.email}"><br>
+                                    <input type="text" name="email" class="form-control" th:value="${fornecedor.email}"><br>
                                 </div>                                
                                 <div class="form-group">
                                     <label>Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" th:value="${cliente.telefone}"><br>
+                                    <input type="text" name="telefone" class="form-control" th:value="${fornecedor.telefone}"><br>
                                 </div>                                
                                 <div class="modal-footer">
                                 <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">

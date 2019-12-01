@@ -35,11 +35,11 @@ public class LoginController {
 				if(u.getSenha().equals(usuario.getSenha())) {
 					return "redirect:Home";				
 				}else {
-					return "Usuário/Senha não encontrados";
+					return "error";
 				}
 			}
 		}
-		return "Usuário não encontrado";
+		return "error";
     }
 
 }

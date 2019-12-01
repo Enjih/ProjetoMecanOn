@@ -19,62 +19,61 @@ import com.cotemig.ProjetoMecanOn.service.UsuarioService;
 public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@Autowired
 	private PerfilService perfilService;
-	
+
 	@RequestMapping( value = "/Usuario", method = RequestMethod.GET) 
-    public ModelAndView usuario(){
+	public ModelAndView usuario(){
 		ModelAndView mav = new ModelAndView("usuario");
-		
-        mav.addObject("usuarios", usuarioService.getAllUsuarios());
-        mav.addObject("usuario", new Usuario());
+
+		mav.addObject("usuarios", usuarioService.getAllUsuarios());
+		mav.addObject("usuario", new Usuario());
 		mav.addObject("perfis", perfilService.getAllPerfis());
-        
-        return mav;
-    }	
-	
+
+		return mav;
+	}	
+
 	@RequestMapping(value = "/Usuario", method = RequestMethod.POST)
-    public String submitIncluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
+	public String submitIncluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-            return "error";
-        }
-		
+			return "error";
+		}
+
 		usuarioService.insertUsuario(usuario);
-        
-        return "redirect:Usuario";//perguntar o professor se é assim que volta para a pagina de Usuario 
-    }
-	
+
+		return "redirect:Usuario";
+	}
+
 	@RequestMapping(value = "/Usuario/Alterar", method = RequestMethod.GET)
 	public ModelAndView AlterarUsuario(Integer id) {
 		ModelAndView mav = new ModelAndView("usuario_alterar", "usuario", usuarioService.getUsuarioById(id).get());
 		mav.addObject("perfis", perfilService.getAllPerfis());
 		return mav;		
 	}
-	
+
 	@RequestMapping(value = "/Usuario/Alterar", method = RequestMethod.POST)
 	public String submitAlterarUsuario(@Valid @ModelAttribute("usuario")Usuario usuario,
-		      BindingResult result, ModelMap model) {
-				if (result.hasErrors()) {
-		            return "error";
-				}
-				
-				return "redirect:Usuario";
-		    }
-	
+			BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "error";
+		}
+
+		return "redirect:Usuario";
+	}
+
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.GET)
 	public ModelAndView ExcluirUsuario(Integer id) {
 		return new ModelAndView("usuario_excluir", "usuario", usuarioService.getUsuarioById(id).get());
 	}
-	
+
 	@RequestMapping(value = "/Usuario/Excluir", method = RequestMethod.POST)
 	public String submitExcluirUsuario(@Valid @ModelAttribute("usuario")Usuario usuario, BindingResult result, ModelMap model) {	
-		System.out.println(usuario.getId());
 		if (result.hasErrors()) {
-		            return "error";
-		        }
-		
-				usuarioService.deleteUsuarioById(usuario.getId());		        
-				return "redirect:Usuario";
-		    }
+			return "error";
+		}
+
+		usuarioService.deleteUsuarioById(usuario.getId());		        
+		return "redirect:Usuario";
+	}
 }

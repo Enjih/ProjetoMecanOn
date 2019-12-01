@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import java.util.Set;
 
+import java.util.List;
 @Entity
 public class Cliente {
 	
@@ -19,8 +19,8 @@ public class Cliente {
 	private String email;
 	private String telefone;
 	
-	@OneToMany(mappedBy = "veiculo",  targetEntity = Veiculo.class)
-	private Set<Veiculo> veiculos;	
+	@OneToMany(mappedBy = "cliente",  targetEntity = Veiculo.class)
+	private List<Veiculo> veiculos;	
 	
 	public Integer getId() {
 		return id;
@@ -52,10 +52,10 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public Set<Veiculo> getVeiculos() {
+	public List<Veiculo> getVeiculos() {
 		return veiculos;
 	}
-	public void setVeiculos(Set<Veiculo> veiculos) {
+	public void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
 }

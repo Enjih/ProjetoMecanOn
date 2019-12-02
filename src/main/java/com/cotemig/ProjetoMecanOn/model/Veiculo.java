@@ -1,7 +1,5 @@
 package com.cotemig.ProjetoMecanOn.model;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class Veiculo {
 	private String nome;
 	private char tipo;
 	private String placa;
-	private Date ano;
+	private String ano;
 	
 	@ManyToOne
 	@JoinColumn(name="cliente_id", nullable=false)
@@ -55,10 +53,10 @@ public class Veiculo {
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-	public Date getAno() {
+	public String getAno() {
 		return ano;
 	}
-	public void setAno(Date ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
 }

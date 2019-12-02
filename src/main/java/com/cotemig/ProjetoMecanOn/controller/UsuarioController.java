@@ -39,9 +39,7 @@ public class UsuarioController {
 		if (result.hasErrors()) {
 			return "error";
 		}
-
 		usuarioService.insertUsuario(usuario);
-
 		return "redirect:Usuario";
 	}
 
@@ -58,6 +56,7 @@ public class UsuarioController {
 		if (result.hasErrors()) {
 			return "error";
 		}
+		usuarioService.updateUsuarioById(usuario.getId(), usuario);
 
 		return "redirect:";
 	}
@@ -74,6 +73,6 @@ public class UsuarioController {
 		}
 
 		usuarioService.deleteUsuarioById(usuario.getId());		        
-		return "redirect:Usuario";
+		return "redirect:";
 	}
 }

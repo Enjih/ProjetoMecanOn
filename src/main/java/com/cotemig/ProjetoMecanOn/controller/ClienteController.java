@@ -30,7 +30,7 @@ public class ClienteController {
 	}	
 
 	@RequestMapping(value = "/Cliente", method = RequestMethod.POST)
-	public String submitIncluirCliente(@Valid @ModelAttribute("cliene")Cliente cliente, BindingResult result, ModelMap model) {
+	public String submitIncluirCliente(@Valid @ModelAttribute("cliente")Cliente cliente, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
 			return "error";
 		}		
@@ -49,6 +49,7 @@ public class ClienteController {
 		if (result.hasErrors()) {
 			return "error";
 		}
+		clienteService.updateClienteById(cliente.getId(), cliente);
 
 		return "redirect:";
 	}
@@ -63,6 +64,6 @@ public class ClienteController {
 			return "error";
 		}
 		clienteService.deleteClienteById(cliente.getId());		        
-		return "redirect:Cliente";
+		return "redirect:";
 	}
 }

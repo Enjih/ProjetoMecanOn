@@ -34,8 +34,10 @@ public class OrdemServico {
 	@ManyToOne
 	@JoinColumn(name="usuario_id", nullable=false)
 	private Usuario usuario;
-
 	
+	public Integer getId() {
+		return id;
+	}
 	public Cliente getCliente() {
 		return cliente;
 	}

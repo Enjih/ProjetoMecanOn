@@ -67,7 +67,7 @@ body {
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
-    background-image: url('./home.jpg');
+    background-image: url('https://web.whatsapp.com/277ded56-d102-4da6-bd99-5f58f4e07879');
     background-size: cover;
     background-size: 100% 100%;
   }
@@ -309,8 +309,9 @@ table.table .avatar {
         <a href="/Usuario" class="list-group-item list-group-item-action bg-light">Usuário</a>
         <a href="/Cliente" class="list-group-item list-group-item-action bg-light">Cliente</a>
         <a href="/Fornecedor" class="list-group-item list-group-item-action bg-light">Fornecedor</a>
-        <a href="/OrdemdeServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
+        <a href="/OrdemServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
         <a href="/Veiculo" class="list-group-item list-group-item-action bg-light">Veiculo</a>
+        <a href="/Produto" class="list-group-item list-group-item-action bg-light">Produto</a>
         <a href="/Perfil" class="list-group-item list-group-item-action bg-light">Perfil</a>
       </div>
     </div>
@@ -383,6 +384,7 @@ table.table .avatar {
                             </span>
                         </td>
                         <td th:text="${veiculo.id}"></td>
+                        <td th:text="${veiculo.nome}"></td>
                         <td th:text="${veiculo.tipo}"></td>
                         <td th:text="${veiculo.placa}"></td>
                         <td th:text="${veiculo.ano}"></td>
@@ -425,7 +427,7 @@ table.table .avatar {
                     </div>
                     <div class="form-group">
                         <label>Ano</label>
-                        <input type="number" name="ano" class="form-control" required>
+                        <input type="text" name="ano" class="form-control" required>
                     </div>  
                     <div class="form-group">
                         <label>Cliente</label><br>

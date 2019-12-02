@@ -30,7 +30,7 @@ public class VeiculoServiceImpl implements VeiculoService{
 
 	@Override
 	public void deleteVeiculoById(Integer id) {
-		veiculoRepository.deleteAll();		
+		veiculoRepository.deleteById(id);	
 	}
 
 	@Override

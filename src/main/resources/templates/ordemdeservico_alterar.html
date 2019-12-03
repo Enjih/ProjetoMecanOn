@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alterar Veículos</title>
+  <title>Alterar Ordem de Serviço</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -340,45 +340,60 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Veiculo/Alterar" method="POST" modelAttribute="veiculo">
+                    <form action="/OrdemdeServico/Alterar" method="POST" modelAttribute="ordem">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Alterar Veículo</h2>
+                                            <h2>Alterar Ordem de Serviço</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Id</label>
-                                    <input type="text" name="id" th:value="${veiculo.id}" class="form-control" readonly="true">
+                                    <input type="text" name="id" th:value="${ordem.id}" class="form-control" readonly="true">
                                     </div>
 
                                 <div class="form-group">
-                                    <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control" th:value="${veiculo.nome}"><br>
-                                </div>   
+                                    <label>Descricao</label>
+                                    <input type="text" name="descricao" class="form-control" th:value="${ordem.descricao}"><br>
+                                </div>    
+                                
+                                <div class="form-group">
+                                    <label>Data Solicitacao</label>
+                                    <input type="datetime" name="datasolicitacao" class="form-control" th:value="${ordem.dataSolicitacao}"><br>
+                                </div> 
 
                                 <div class="form-group">
-                                        <label>Tipo</label><br>
-                                        <select class="form-control" th:field="*{veiculo.tipo}">
-                                            <option th:each="t : ${tipos}" th:value="${t.id}" th:text="${t.nome}"></option>
-                                        </select>	
-                                    </div>	
+                                    <label>Data Inicio</label>
+                                    <input type="datetime" name="datainicio" class="form-control" th:value="${ordem.dataInicio}"><br>
+                                </div> 
 
                                 <div class="form-group">
-                                    <label>Placa</label>
-                                    <input type="text" name="placa" class="form-control" th:value="${veiculo.placa}"><br>
+                                    <label>Data Entrega</label>
+                                    <input type="datetime" name="dataentrega" class="form-control" th:value="${ordem.dataEntrega}"><br>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label>Status</label><br>
+                                    <select class="form-control" th:field="*{ordem.status}">
+                                        <option th:each="s : ${status}" th:value="${s.id}" th:text="${s.nome}"></option>
+                                    </select>	
+                                </div>	
+
+                                <div class="form-group">
+                                    <label>Valor</label>
+                                    <input type="number" name="valor" class="form-control" th:value="${ordem.valor}"><br>
                                 </div>  
 
                                 <div class="form-group">
-                                    <label>Ano</label>
-                                    <input type="number" name="ano" class="form-control" th:value="${veiculo.ano}"><br>
-                                </div>   
+                                    <label>Veiculo</label>
+                                    <input type="text" name="veiculo" class="form-control" th:value="${ordem.veiculo}"><br>
+                                </div>  
 
                                 <div class="form-group">
-                                    <label>Cliente</label><br>
-                                    <select class="form-control" th:field="*{veiculo.cliente}">
-                                        <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
+                                    <label>Usuario</label><br>
+                                    <select class="form-control" th:field="*{ordem.usuario}">
+                                        <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
                                     </select>	
                                 </div>	
 

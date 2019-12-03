@@ -7,19 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title>Alterar Veículos</title>
-
+  <title>Excluir Ordem de Serviço</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
 <!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -322,10 +317,10 @@ table.table .avatar {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="/#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Diogo
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -340,52 +335,66 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Veiculo/Alterar" method="POST" modelAttribute="veiculo">
+                    <form action="/OrdemdeServico/Excluir" method="POST" modelAttribute="ordem">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Alterar Veículo</h2>
+                                            <h2>Excluir Ordem de Serviço</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Id</label>
-                                    <input type="text" name="id" th:value="${veiculo.id}" class="form-control" readonly="true">
+                                    <input type="number" name="id" class="form-control" th:value="${ordem.id}" readonly="true">
                                     </div>
 
                                 <div class="form-group">
-                                    <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control" th:value="${veiculo.nome}"><br>
-                                </div>   
+                                    <label>Descricao</label>
+                                    <input type="text" name="descricao" class="form-control" th:value="${ordem.nome}" readonly="true">
+                                </div>
 
                                 <div class="form-group">
-                                        <label>Tipo</label><br>
-                                        <select class="form-control" th:field="*{veiculo.tipo}">
-                                            <option th:each="t : ${tipos}" th:value="${t.id}" th:text="${t.nome}"></option>
-                                        </select>	
-                                    </div>	
+                                    <label>Data Solicitacao</label>
+                                    <input type="datetime" name="datasolicitacao" class="form-control" th:value="${ordem.dataSolicitacao}"><br>
+                                </div> 
 
                                 <div class="form-group">
-                                    <label>Placa</label>
-                                    <input type="text" name="placa" class="form-control" th:value="${veiculo.placa}"><br>
-                                </div>  
+                                    <label>Data Inicio</label>
+                                    <input type="datetime" name="datainicio" class="form-control" th:value="${ordem.dataInicio}"><br>
+                                </div> 
 
                                 <div class="form-group">
-                                    <label>Ano</label>
-                                    <input type="number" name="ano" class="form-control" th:value="${veiculo.ano}"><br>
-                                </div>   
+                                    <label>Data Entrega</label>
+                                    <input type="datetime" name="dataentrega" class="form-control" th:value="${ordem.dataEntrega}"><br>
+                                </div> 
 
                                 <div class="form-group">
-                                    <label>Cliente</label><br>
-                                    <select class="form-control" th:field="*{veiculo.cliente}">
-                                        <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
+                                    <label>Status</label><br>
+                                    <select class="form-control" th:field="*{ordem.status}">
+                                        <option th:each="s : ${status}" th:value="${s.id}" th:text="${s.nome}"></option>
                                     </select>	
                                 </div>	
 
+                                <div class="form-group">
+                                    <label>Valor</label>
+                                    <input type="number" name="valor" class="form-control" th:value="${ordem.valor}"><br>
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>Veiculo</label>
+                                    <input type="text" name="veiculo" class="form-control" th:value="${ordem.veiculo}"><br>
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>Usuario</label><br>
+                                    <select class="form-control" th:field="*{ordem.usuario}">
+                                        <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
+                                    </select>	
+                                </div>	                              
 
                                 <div class="modal-footer">
-                                <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-                                <input type="submit" class="btn btn-info" value="Salvar">
+                                	<a href="/OrdemdeServico"><input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar"></a>                                    
+                                    <input type="submit" class="btn btn-danger" value="Excluir">
                                 </div>
                         </form>
             </div>

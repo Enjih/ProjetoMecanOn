@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alterar Fornecedor</title>
+  <title>Alterar Ordem de Serviço</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -341,36 +341,66 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Fornecedor/Alterar" method="POST" modelAttribute="fornecedor">
+                    <form action="/OrdemdeServico/Alterar" method="POST" modelAttribute="ordem">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Alterar Fornecedor</h2>
+                                            <h2>Alterar Ordem de Serviço</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Id</label>
-                                    <input type="text" name="id" th:value="${fornecedor.id}" class="form-control" readonly="true">
+                                    <input type="text" name="id" th:value="${ordemServico.id}" class="form-control" readonly="true">
                                     </div>
+
                                 <div class="form-group">
-                                    <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control" th:value="${fornecedor.nome}"><br>
-                                </div>
+                                    <label>Descricao</label>
+                                    <input type="text" name="descricao" class="form-control" th:value="${ordemServico.descricao}"><br>
+                                </div>    
+                                
                                 <div class="form-group">
-                                    <label>CNPJ</label>
-                                    <input type="number" name="cnpj" class="form-control" th:value="${fornecedor.cnpj}"><br>
-                                </div>
+                                    <label>Data Solicitacao</label>
+                                    <input type="datetime" name="datasolicitacao" class="form-control" th:value="${ordemServico.dataSolicitacao}"><br>
+                                </div> 
+
                                 <div class="form-group">
-                                    <label>E-mail</label>
-                                    <input type="text" name="email" class="form-control" th:value="${fornecedor.email}"><br>
-                                </div>                                
+                                    <label>Data Inicio</label>
+                                    <input type="datetime" name="datainicio" class="form-control" th:value="${ordemServico.dataInicio}"><br>
+                                </div> 
+
                                 <div class="form-group">
-                                    <label>Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" th:value="${fornecedor.telefone}"><br>
-                                </div>                                
+                                    <label>Data Entrega</label>
+                                    <input type="datetime" name="dataentrega" class="form-control" th:value="${ordemServico.dataEntrega}"><br>
+                                </div> 
+
+                                <div class="form-group">
+                                    <label>Status</label><br>
+                                    <select class="form-control" th:field="*{ordemServico.status}">
+                                        <option th:each="s : ${status}" th:value="${s}" th:text="${s}"></option>
+                                    </select>	
+                                </div>	
+
+                                <div class="form-group">
+                                    <label>Valor</label>
+                                    <input type="number" name="valor" class="form-control" th:value="${ordemServico.valor}"><br>
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>Veiculo</label>
+                                    <input type="text" name="veiculo" class="form-control" th:value="${ordemServico.veiculo}"><br>
+                                </div>  
+
+                                <div class="form-group">
+                                    <label>Usuario</label><br>
+                                    <select class="form-control" th:field="*{ordemServico.usuario}">
+                                        <option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
+                                    </select>	
+                                </div>	
+
+
                                 <div class="modal-footer">
-                                        <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                                <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                                 <input type="submit" class="btn btn-info" value="Salvar">
                                 </div>
                         </form>

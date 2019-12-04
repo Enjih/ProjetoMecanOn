@@ -15,6 +15,7 @@ import com.cotemig.ProjetoMecanOn.model.OrdemServico;
 import com.cotemig.ProjetoMecanOn.service.ClienteService;
 import com.cotemig.ProjetoMecanOn.service.OrdemServicoService;
 import com.cotemig.ProjetoMecanOn.service.UsuarioService;
+import com.cotemig.ProjetoMecanOn.service.VeiculoService;
 
 @Controller
 public class OrdemServicoController {
@@ -27,13 +28,21 @@ public class OrdemServicoController {
 	@Autowired
 	UsuarioService usuarioService;
 	
+	@Autowired
+	VeiculoService veiculoService;
+	
+	
 	@RequestMapping( value = "/OrdemServico", method = RequestMethod.GET) 
 	public ModelAndView OrdemServico(){
-		ModelAndView mav = new ModelAndView("ordemServico");
+		ModelAndView mav = new ModelAndView("ordem_servico");
 
+		char [] status = new char[]{'A', 'R'};
+		
 		mav.addObject("ordensServico", ordemServicoService.getAllOrdensServico());
 		mav.addObject("clientes", clienteService.getAllClientes());
 		mav.addObject("usuarios", usuarioService.getAllUsuarios());
+		mav.addObject("status", status);
+		mav.addObject("veiculos", veiculoService.getAllVeiculos());
 		
 		mav.addObject("ordemServico", new OrdemServico()); 	
 
@@ -51,7 +60,7 @@ public class OrdemServicoController {
 
 	@RequestMapping(value = "/OrdemServico/Alterar", method = RequestMethod.GET)
 	public ModelAndView AlterarOrdemServico(Integer id) {
-		return new ModelAndView("ordemServico_alterar", "ordemServico", ordemServicoService.getOrdemServicoById(id).get());		
+		return new ModelAndView("ordem_servico_alterar", "ordemServico", ordemServicoService.getOrdemServicoById(id).get());		
 	}
 
 	@RequestMapping(value = "/OrdemServico/Alterar", method = RequestMethod.POST)
@@ -66,7 +75,7 @@ public class OrdemServicoController {
 	}
 	@RequestMapping(value = "/OrdemServico/Excluir", method = RequestMethod.GET)
 	public ModelAndView ExcluirOrdemServico(Integer id) {
-		return new ModelAndView("ordemServico_excluir", "ordemServico", ordemServicoService.getOrdemServicoById(id).get());
+		return new ModelAndView("ordem_servico_excluir", "ordemServico", ordemServicoService.getOrdemServicoById(id).get());
 	}
 
 	@RequestMapping(value = "/OrdemServico/Excluir", method = RequestMethod.POST)

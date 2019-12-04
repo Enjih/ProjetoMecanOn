@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Alterar Fornecedor</title>
+  <title>Alterar Perfis</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -306,9 +306,8 @@ table.table .avatar {
         <a href="/Usuario" class="list-group-item list-group-item-action bg-light">Usuário</a>
         <a href="/Cliente" class="list-group-item list-group-item-action bg-light">Cliente</a>
         <a href="/Fornecedor" class="list-group-item list-group-item-action bg-light">Fornecedor</a>
-        <a href="/OrdemServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
+        <a href="/OrdemdeServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
         <a href="/Veiculo" class="list-group-item list-group-item-action bg-light">Veiculo</a>
-        <a href="/Produto" class="list-group-item list-group-item-action bg-light">Produto</a>
         <a href="/Perfil" class="list-group-item list-group-item-action bg-light">Perfil</a>
       </div>
     </div>
@@ -341,39 +340,41 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Fornecedor/Alterar" method="POST" modelAttribute="fornecedor">
+                    <form action="/Perfil/Alterar" method="POST" modelAttribute="perfil">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h2>Alterar Fornecedor</h2>
+                                            <h2>Alterar Perfil</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Id</label>
-                                    <input type="text" name="id" th:value="${fornecedor.id}" class="form-control" readonly="true">
+                                    <input type="text" name="id" th:value="${perfil.id}" class="form-control" readonly="true">
                                     </div>
+
                                 <div class="form-group">
                                     <label>Nome</label>
-                                    <input type="text" name="nome" class="form-control" th:value="${fornecedor.nome}"><br>
-                                </div>
+                                    <input type="text" name="nome" class="form-control" th:value="${perfil.nome}"><br>
+                                </div>   
+
                                 <div class="form-group">
-                                    <label>CNPJ</label>
-                                    <input type="number" name="cnpj" class="form-control" th:value="${fornecedor.cnpj}"><br>
-                                </div>
+                                        <label>Tipo</label><br>
+                                        <select class="form-control" th:field="*{perfil.tipo}">
+                                            <option th:each="t : ${tipos}" th:value="${t.id}" th:text="${t.nome}"></option>
+                                        </select>
+
                                 <div class="form-group">
-                                    <label>E-mail</label>
-                                    <input type="text" name="email" class="form-control" th:value="${fornecedor.email}"><br>
-                                </div>                                
-                                <div class="form-group">
-                                    <label>Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" th:value="${fornecedor.telefone}"><br>
-                                </div>                                
+                                    <label>Permissoes</label>
+                                    <input type="text" name="permissoes" class="form-control" th:value="${perfil.permissoes}"><br>
+                                </div>  
+
+                                    </div>
                                 <div class="modal-footer">
-                                        <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                                <input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                                 <input type="submit" class="btn btn-info" value="Salvar">
                                 </div>
-                        </form>
+                        </form>                    
             </div>
         </div>      
     </div>

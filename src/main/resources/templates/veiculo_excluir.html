@@ -62,7 +62,7 @@ body {
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
-    background-image: url('home.jpg');
+    background-image: url('https://i.ibb.co/ZxTXd7d/home.jpg');
     background-size: cover;
     background-size: 100% 100%;
   }
@@ -301,9 +301,8 @@ table.table .avatar {
         <a href="/Usuario" class="list-group-item list-group-item-action bg-light">Usuário</a>
         <a href="/Cliente" class="list-group-item list-group-item-action bg-light">Cliente</a>
         <a href="/Fornecedor" class="list-group-item list-group-item-action bg-light">Fornecedor</a>
-        <a href="/OrdemServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
+        <a href="/OrdemdeServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
         <a href="/Veiculo" class="list-group-item list-group-item-action bg-light">Veiculo</a>
-        <a href="/Produto" class="list-group-item list-group-item-action bg-light">Produto</a>
         <a href="/Perfil" class="list-group-item list-group-item-action bg-light">Perfil</a>
       </div>
     </div>
@@ -336,7 +335,7 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Veiculo/Excluir" method="POST" modelAttribute="veiculo">
+                    <form action="/OrdemdeServico/Excluir" method="POST" modelAttribute="ordem">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -365,7 +364,7 @@ table.table .avatar {
                                 </div>
 
                                 <div class="modal-footer">
-                                	<input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">                                    
+                                	<input type="button" onclick="goBack()" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                                     <input type="submit" class="btn btn-danger" value="Excluir">
                                 </div>
                         </form>

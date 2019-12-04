@@ -67,7 +67,7 @@ body {
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
-    background-image: url('home.jpg');
+    background-image: url('https://i.ibb.co/ZxTXd7d/home.jpg');
     background-size: cover;
     background-size: 100% 100%;
   }
@@ -306,9 +306,8 @@ table.table .avatar {
         <a href="/Usuario" class="list-group-item list-group-item-action bg-light">Usuário</a>
         <a href="/Cliente" class="list-group-item list-group-item-action bg-light">Cliente</a>
         <a href="/Fornecedor" class="list-group-item list-group-item-action bg-light">Fornecedor</a>
-        <a href="/OrdemServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
+        <a href="/OrdemdeServico" class="list-group-item list-group-item-action bg-light">Ordem de Serviço</a>
         <a href="/Veiculo" class="list-group-item list-group-item-action bg-light">Veiculo</a>
-        <a href="/Produto" class="list-group-item list-group-item-action bg-light">Produto</a>
         <a href="/Perfil" class="list-group-item list-group-item-action bg-light">Perfil</a>
       </div>
     </div>
@@ -341,12 +340,12 @@ table.table .avatar {
       </nav>
       <div class="container"  id="page-content-wrapper">            
             <div class="table-wrapper">
-                    <form action="/Usuario/Alterar" method="POST" modelAttribute="usuario">
+                    <form action="/Veiculo/Alterar" method="POST" modelAttribute="veiculo">
                             	<div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <h2>Alterar Veículo</h2>
-                                        </div>s
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -373,7 +372,7 @@ table.table .avatar {
 
                                 <div class="form-group">
                                     <label>Ano</label>
-                                    <input type="text" name="ano" class="form-control" th:value="${veiculo.ano}"><br>
+                                    <input type="number" name="ano" class="form-control" th:value="${veiculo.ano}"><br>
                                 </div>   
 
                                 <div class="form-group">

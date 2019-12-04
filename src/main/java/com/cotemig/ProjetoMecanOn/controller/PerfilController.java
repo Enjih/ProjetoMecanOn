@@ -25,6 +25,7 @@ public class PerfilController {
 		char [] tipos = new char[]{'E', 'G', 'O'};
 
 		mav.addObject("tipos", tipos);
+		mav.addObject("perfis", perfilService.getAllPerfis());
 		mav.addObject("perfil", new Perfil()); 
 
 		return mav;
